@@ -1,0 +1,231 @@
+Jacob Roth - IS 612: Program #3:
+
+ParksClassDemo:
+
+package projectThreePackage;
+import java.util.Scanner;
+public class ParksClassDemo {
+
+	public static void main(String[] args) 
+	{
+		ParksClass winterSports = new ParksClass();
+		winterSports.initialize();
+		Scanner keyboard = new Scanner (System.in);
+		for (int i = 1; i <= 10; i++)
+		{
+			winterSports.getFamilyInfo();
+			winterSports.figureFamilyFeeAndAccumulate();
+			winterSports.printFamilyInfo();
+		}
+			winterSports.printAllTotals();
+
+	}
+
+}
+
+
+ParksClass:
+
+package projectThreePackage;
+import java.util.Scanner;
+public class ParksClass 
+{
+	private double swimmingFeeTotal;
+	private double tennisFeeTotal;
+	private double racquetballFeeTotal;
+	private double aerobicsFeeTotal;
+	private double totalRevenue;
+	private String sport;
+	private int familyMembers, swimmingCount, tennisCount, racquetballCount, aerobicsCount, totalCount;
+	private String familyName;
+	private double fee, familyFee;
+	Scanner keyboard = new Scanner (System.in);
+	
+	
+	public void initialize() // or you could use a constructor to initialize
+	{
+		familyFee = 0;
+		swimmingFeeTotal = 0;
+		tennisFeeTotal = 0;
+		racquetballFeeTotal = 0;
+		aerobicsFeeTotal = 0;
+		swimmingCount = 0;
+		tennisCount = 0;
+		racquetballCount = 0;
+		aerobicsCount = 0;
+	}
+	
+	public void getFamilyInfo()
+	{
+		System.out.println("Enter your family's last name");
+		familyName = keyboard.nextLine();
+		System.out.println("How many members are there in your family that will be participating?");
+		familyMembers = keyboard.nextInt();
+		String emptyString = keyboard.nextLine();
+		System.out.println("Enter the sports you will be playing - swimming - tennis - racquetball -aerobics");
+		sport = keyboard.nextLine();
+	}
+	
+	public void figureFamilyFeeAndAccumulate()
+	{
+		if (sport.equals("swimming"))
+		{
+			fee = 45;
+			familyFee = familyMembers * fee;
+			swimmingFeeTotal = swimmingFeeTotal + familyFee;
+			swimmingCount = swimmingCount + familyMembers;
+		}
+		else if (sport.equals("tennis"))
+		{
+			fee = 60;
+			familyFee = familyMembers * fee;
+			tennisFeeTotal = tennisFeeTotal + familyFee;
+			tennisCount = tennisCount + familyMembers;
+		}
+		else if (sport.equals("racquetball"))
+		{
+			fee = 50;
+			familyFee = familyMembers * fee;
+			racquetballFeeTotal = racquetballFeeTotal + familyFee;
+			racquetballCount = racquetballCount + familyMembers;
+		}
+		else if (sport.equals("aerobics"))
+		{
+			fee = 35;
+			familyFee = familyMembers * fee;
+			aerobicsFeeTotal = aerobicsFeeTotal + familyFee;
+			aerobicsCount = aerobicsCount + familyMembers;
+		}
+				
+	}
+	
+	public void printFamilyInfo()
+	{
+		System.out.println("Family Name = " + familyName);
+		System.out.println("Number of Family Members = " + familyMembers);
+		System.out.println("Sport of choice = " + sport);
+		System.out.println("Family Fee = " + familyFee);
+	}
+	
+	public void printAllTotals()
+	{
+		totalRevenue = swimmingFeeTotal + tennisFeeTotal + racquetballFeeTotal + aerobicsFeeTotal;
+		totalCount = swimmingCount + tennisCount + racquetballCount + aerobicsCount;
+		System.out.println("The total number of people registered for swimming is " + swimmingCount + " and the total money accumulated is " + swimmingFeeTotal);
+		System.out.println("The total number of people registered for tennis is " + tennisCount + " and the total money accumulated is " + tennisFeeTotal);
+		System.out.println("The total number of people registered for racquetball is " + racquetballCount + " and the total money accumulated is " + racquetballFeeTotal);
+		System.out.println("The total number of people registered for aerobics is " + aerobicsCount + " and the total money accumulated is " + aerobicsFeeTotal);	
+		System.out.println("The total number of participating in the games is " + totalCount + " and the total revenue earned is " + totalRevenue);
+	}
+
+}
+
+
+
+OUTPUT for 10 Families:
+
+Enter your family's last name
+roth
+How many members are there in your family that will be participating?
+5
+Enter the sports you will be playing - swimming - tennis - racquetball -aerobics
+swimming
+Family Name = roth
+Number of Family Members = 5
+Sport of choice = swimming
+Family Fee = 225.0
+Enter your family's last name
+romeo
+How many members are there in your family that will be participating?
+5
+Enter the sports you will be playing - swimming - tennis - racquetball -aerobics
+tennis
+Family Name = romeo
+Number of Family Members = 5
+Sport of choice = tennis
+Family Fee = 300.0
+Enter your family's last name
+denbaum
+How many members are there in your family that will be participating?
+8
+Enter the sports you will be playing - swimming - tennis - racquetball -aerobics
+tennis
+Family Name = denbaum
+Number of Family Members = 8
+Sport of choice = tennis
+Family Fee = 480.0
+Enter your family's last name
+mauch
+How many members are there in your family that will be participating?
+4
+Enter the sports you will be playing - swimming - tennis - racquetball -aerobics
+aerobics
+Family Name = mauch
+Number of Family Members = 4
+Sport of choice = aerobics
+Family Fee = 140.0
+Enter your family's last name
+nixon
+How many members are there in your family that will be participating?
+6
+Enter the sports you will be playing - swimming - tennis - racquetball -aerobics
+swimming
+Family Name = nixon
+Number of Family Members = 6
+Sport of choice = swimming
+Family Fee = 270.0
+Enter your family's last name
+acquanita
+How many members are there in your family that will be participating?
+4
+Enter the sports you will be playing - swimming - tennis - racquetball -aerobics
+racquetball
+Family Name = acquanita
+Number of Family Members = 4
+Sport of choice = racquetball
+Family Fee = 200.0
+Enter your family's last name
+vallaro
+How many members are there in your family that will be participating?
+8
+Enter the sports you will be playing - swimming - tennis - racquetball -aerobics
+tennis
+Family Name = vallaro
+Number of Family Members = 8
+Sport of choice = tennis
+Family Fee = 480.0
+Enter your family's last name
+mcvicker
+How many members are there in your family that will be participating?
+8
+Enter the sports you will be playing - swimming - tennis - racquetball -aerobics
+swimming
+Family Name = mcvicker
+Number of Family Members = 8
+Sport of choice = swimming
+Family Fee = 360.0
+Enter your family's last name
+smith
+How many members are there in your family that will be participating?
+3
+Enter the sports you will be playing - swimming - tennis - racquetball -aerobics
+aerobics
+Family Name = smith
+Number of Family Members = 3
+Sport of choice = aerobics
+Family Fee = 105.0
+Enter your family's last name
+johnson
+How many members are there in your family that will be participating?
+6
+Enter the sports you will be playing - swimming - tennis - racquetball -aerobics
+swimming
+Family Name = johnson
+Number of Family Members = 6
+Sport of choice = swimming
+Family Fee = 270.0
+The total number of people registered for swimming is 25 and the total money accumulated is 1125.0
+The total number of people registered for tennis is 21 and the total money accumulated is 1260.0
+The total number of people registered for racquetball is 4 and the total money accumulated is 200.0
+The total number of people registered for aerobics is 7 and the total money accumulated is 245.0
+The total number of participating in the games is 57 and the total revenue earned is 2830.0
